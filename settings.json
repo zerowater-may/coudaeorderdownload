@@ -1,8 +1,8 @@
 {
     "app_name": "쿠대 주문관리",
-    "version" : "v1-5",
+    "version" : "v1-6",
     "copyright" : "By: tenmiles",
-    "year" : 2022,
+    "year" : 2023,
     "theme_name" : "billi",
     "custom_title_bar": true,
     "startup_size": [
