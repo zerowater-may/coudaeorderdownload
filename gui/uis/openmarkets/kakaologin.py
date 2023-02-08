@@ -230,16 +230,30 @@ class Kakao:
         otherlink = False
         if self.driver.current_url != url:
             print('링크가 다름')
+            # element = self.driver.find_element("id","__next") #iframe 태그 엘리먼트 찾기
+            # self.driver.switch_to.frame(element) #프레임 이동
             # self.close()
+            # self.driver.switch_to.default_content()
             # return 'ANOTHER LINK'
-            self.find_elem('id','input-loginKey',value=info['loginId'])
-            self.find_elem('id','input-password',value=info['loginPass'])
+            print('fldzmfekfma')
+            elem = self.driver.find_element('id','loginKey--1')
+            elem.send_keys(info['loginId'])
+            elem = self.driver.find_element('id','password--2')
+            elem.send_keys(info['loginPass'])
+
+            # if self.find_elem('id','loginKey--1',value=info['loginId']):
+            #     print('아이디 넣기 성공')
+
+            # if self.find_elem('id','password--2',value=info['loginPass']):
+            #     print('비밀번호 넣기 성공')
+            # self.find_elem('xpath','/html/body/div/div/div/main/article/div/div/form/div[1]',value=info['loginId'])
+            # self.find_elem('xpath','/html/body/div/div/div/main/article/div/div/form/div[2]',value=info['loginPass'])
             time.sleep(1)
 
             if '보안문자 2분 후 만료' in str(self.driver.page_source):
                 print('보안문자 ::: 재실행')
                 return False
-
+            print('로그인버튼클릭')
             self.find_elem('xpath','/html/body/div[1]/div/div/main/article/div/div/form/div[4]/button[1]')
             time.sleep(3)
 
